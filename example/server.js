@@ -80,7 +80,7 @@ function registerErrorRouter(){
 function registerExtendRouter(){
   router.get('/extend/get',function(req,res){
     res.json({
-      masg:'hello world'
+      msg:'hello world'
     })
   })
   router.options('/extend/options',function(req,res){
@@ -101,7 +101,24 @@ function registerExtendRouter(){
   router.patch('/extend/patch',function(req,res){
     res.json(req.body)
   })
+  router.get('/extend/user',function(req,res){
+    res.json({
+      code:0,
+      message:'ok',
+      result:{
+        name:'jack',
+        age:18
+      }
+    })
+  })
 }
+
+function  registerInterceptorRouter(){
+  router.get('/interceptor/get',function(req,res){
+    res.end('hello')
+  })
+}
+registerInterceptorRouter()
 registerSimpleRouter()
 registerBaseRouter ()
 registerErrorRouter()
@@ -111,3 +128,4 @@ const port =process.env.PORT||8080
 module.exports=app.listen(port,()=>{
     console.log(`Server listening on http://localhost:${port}`)
 })
+
