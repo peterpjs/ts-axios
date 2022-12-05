@@ -1,10 +1,11 @@
 const express=require('express')
 const bodyParser=require('body-parser')
 const webpack=require('webpack')
+const cookieParser=require('cookie-parser')
 const webpackDevMiddleware=require('webpack-dev-middleware')
 const webpackHotMiddleware=require('webpack-hot-middleware')
 const WebpackConfig=require('./webpack.config')
-
+require('./server2')
 const app=express()
 const compiler=webpack(WebpackConfig)
 
@@ -17,12 +18,28 @@ app.use(webpackDevMiddleware(compiler,{
 }))
 
 app.use(webpackHotMiddleware(compiler))
+
 app.use(express.static(__dirname))
+
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:true}))
+app.use(cookieParser())
 
 const router=express.Router()
+registerMoreRouter()
+registerCancelRouter()
+registerConfigRouter()
+registerInterceptorRouter()
+registerSimpleRouter()
+registerBaseRouter ()
+registerErrorRouter()
+registerExtendRouter()
 
+app.use(router)
+const port =process.env.PORT||8080
+module.exports=app.listen(port,()=>{
+  console.log(`Server listening on http://localhost:${port}`)
+})
 function registerSimpleRouter(){
   router.get('/simple/get',function(req,res){
     res.json({
@@ -118,14 +135,29 @@ function  registerInterceptorRouter(){
     res.end('hello')
   })
 }
-registerInterceptorRouter()
-registerSimpleRouter()
-registerBaseRouter ()
-registerErrorRouter()
-registerExtendRouter()
-app.use(router)
-const port =process.env.PORT||8080
-module.exports=app.listen(port,()=>{
-    console.log(`Server listening on http://localhost:${port}`)
+function  registerConfigRouter(){
+  router.post('/config/post',function(req,res){
+    res.json(req.body)
+  })
+}
+function  registerCancelRouter(){
+  router.get('/cancel/get',function(req,res){
+    setTimeout(()=>{
+      res.json('hello')
+    },1000)
 })
+  router.post('/cancel/post',function(req,res){
+    setTimeout(()=>{
+      res.json(req.body)
+    },1000)
+  })
+}
+
+function registerMoreRouter(){
+  router.get('/more/get',function(req,res){
+    res.json(req.cookies)
+  })
+}
+
+
 
