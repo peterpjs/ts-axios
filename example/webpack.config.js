@@ -48,6 +48,9 @@ entry:fs.readdirSync(__dirname).reduce((entries,dir)=>{
             }
           }
         ]
+      },{
+        test:/\.css$/,
+        use:['style-loader','css-loader']
       }
     ]
   },
