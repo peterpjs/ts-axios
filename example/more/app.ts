@@ -1,7 +1,7 @@
 import axios from '../../src/index'
 
-import { AxiosError } from '../../src/types'
-import qs from 'qs'
+// import { AxiosError } from '../../src/types'
+// import qs from 'qs'
 // import 'nprogress/nprogress.css'
 // import NProgress from 'nprogress'
 // import { response } from 'express'

@@ -1,0 +1,10 @@
+			101 思想政治
+			204 英语二
+			302 数学二
+			813 专业基础综合(数据结构与算法、数据库原理)
+			
+technology 	java Linux javaweb english ide using  ajax json maven jenkins hibernate mybatis junit nginx  tortoiseSvn  git
+ 
+need to comprehend   redis zookeeper spring-cloud  spring spring-batch  spring-mvc  mysql oracle shiro dubbo druid 
+	        c++ math politics data structure database algorithm theory of database 
+

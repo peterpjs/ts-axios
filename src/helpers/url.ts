@@ -65,7 +65,7 @@ export function bulidURL(
 }
 
 export function isAbsoluteURL(url: string): boolean {
-  return /(^[a-z][a-z\d\+\-\.]*:)?\/\//i.test(url)
+  return /^([a-z][a-z\d\+\-\.]*:)?\/\//i.test(url)
 }
 export function combineURL(baseURl: string, relativeURl?: string): string {
   return relativeURl ? baseURl.replace(/\/+$/, '') + '/' + relativeURl.replace(/^\/+/, '') : baseURl
