@@ -140,7 +140,8 @@
     "webpack-hot-middleware": "^2.24.3",
     "qs": "^6.11.0",
     "jasmine-ajax": "^4.0.0",
-    "jasmine-core": "^3.4.0"
+    "jasmine-core": "^3.4.0",
+    "mockajax": "^1.2.0"
   },
   "dependencies": {}
 }
