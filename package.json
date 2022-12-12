@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "description": "",
   "keywords": [],
-  "main": "dist/ts-axios.umd.js",
-  "module": "dist/ts-axios.es5.js",
+  "main": "dist/axios.umd.js",
+  "module": "dist/axios.es5.js",
   "typings": "dist/types/ts-axios.d.ts",
   "files": [
     "dist"
